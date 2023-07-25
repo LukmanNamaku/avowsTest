@@ -1,9 +1,11 @@
 package com.test.avows.backendjavatest.entity;
 
-import javax.persistence.*;
-import java.awt.*;
-import java.util.HashSet;
-import java.util.Set;
+import lombok.Data;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;    
 
 /**
  * @Project backendjavatest
@@ -11,29 +13,13 @@ import java.util.Set;
  * @Author Lukman A, email : lukman.ardie@gmail.com - PC:rapid
  * @Create 25-Jul-23
  */
-        
+
+@Data
 @Entity
 public class Item {
     @Id
-    @GeneratedValue
-    private long id;
-
-    @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String text;
 
-    @ManyToMany(mappedBy = "items")
-    private Set<Container> containers = new HashSet<>();
-
-    public long getId() {
-        return id;
-    }
-
-    public String getText() {
-        return text;
-    }
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public Set<Container> getContainers() { return containers; }
 }
