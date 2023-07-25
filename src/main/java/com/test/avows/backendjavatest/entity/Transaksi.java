@@ -23,10 +23,18 @@ public class Transaksi {
 
     private Integer accountId;
     private String description;
-    private String debitCreditStatus;
+    
+    @Enumerated(EnumType.STRING)
+    private StatusTransaksi debitCreditStatus;
+    
     private Long amount;
 
     @Temporal(TemporalType.DATE)
     private Date transactionDate;
+    
+    public enum StatusTransaksi{
+        DEBIT, CREDIT;
+        
+    }
 
 }

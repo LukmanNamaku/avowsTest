@@ -14,7 +14,6 @@ import org.springframework.stereotype.Repository;
  * @Create 25-Jul-23
  */
 
-@Repository
 public interface CustomerRepository extends JpaRepository<Customer, Integer> {
     Optional<Customer> findByAccountId(Integer accountId);
     Customer findTopByAccountId(Integer accountId);

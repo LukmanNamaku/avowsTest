@@ -16,12 +16,9 @@ import java.util.Optional;
  * @Create 25-Jul-23
  */
 
-@Repository
 public interface ItemRepository  extends JpaRepository<Item, Integer> {
     @Query(value = "SELECT * FROM item t", nativeQuery = true)
     List<Item> getAllItemsNative();
-    
-    Optional<Item> findByItemId(Integer itemId);
     Item findTopByItemId(Integer itemId);
 
 }

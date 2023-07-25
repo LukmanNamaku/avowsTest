@@ -22,7 +22,7 @@ import java.util.List;
  * @Create 25-Jul-23
  */
 
-@Controller
+@RestController
 @RequestMapping("/api/managed-item")
 public class ItemController {
     

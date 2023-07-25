@@ -1,6 +1,7 @@
 package com.test.avows.backendjavatest.service.impl;
 
 import com.test.avows.backendjavatest.dto.customer.CustomerCreateRequest;
+import com.test.avows.backendjavatest.dto.customer.CustomerDTO;
 import com.test.avows.backendjavatest.dto.customer.CustomerUpdateRequest;
 import com.test.avows.backendjavatest.entity.Customer;
 import com.test.avows.backendjavatest.handler.NotFoundException;
@@ -29,6 +30,16 @@ public class CustomerServiceImpl implements CustomerService {
     public List<Customer> getAllConsumers() {
         List<Customer> newCustomerList = customerRepository.findAll();
         return newCustomerList;
+    }
+
+    @Override
+    public Customer findByAccountId(Integer accountId) {
+        Customer newCustomer = customerRepository.findTopByAccountId(accountId);
+        if (newCustomer == null){
+            throw new NotFoundException("error.cutomer-tidak-ditemukan");
+        }
+        return newCustomer;
+
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.test.avows.backendjavatest.dto.Transaksi;
 
+import com.test.avows.backendjavatest.entity.Transaksi;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
@@ -31,6 +32,6 @@ public class TransaksiUpdateRequest {
 
     @NotBlank
     @NotNull(message = "error.status-tidak-boleh-kosong")
-    private String debitCreditStatus;
+    private Transaksi.StatusTransaksi debitCreditStatus;
 
 }

@@ -1,5 +1,6 @@
 package com.test.avows.backendjavatest.dto.Transaksi;
 
+import com.test.avows.backendjavatest.entity.Transaksi;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,7 +22,7 @@ public class TransaksiDTO {
     private String name;
     private String description;
     private Long amount;
-    private String debitCreditStatus;
+    private Transaksi.StatusTransaksi debitCreditStatus;
 
     
 }

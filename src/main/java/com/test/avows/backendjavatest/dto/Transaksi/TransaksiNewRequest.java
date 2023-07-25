@@ -1,5 +1,6 @@
 package com.test.avows.backendjavatest.dto.Transaksi;
 
+import com.test.avows.backendjavatest.entity.Transaksi;
 import lombok.Data;
 
 import java.util.Date;
@@ -17,6 +18,6 @@ public class TransaksiNewRequest {
     private String description;
     private Long amount;
     private Date transactionDate;
-    private String debitCreditStatus;
+    private Transaksi.StatusTransaksi debitCreditStatus;
 
 }

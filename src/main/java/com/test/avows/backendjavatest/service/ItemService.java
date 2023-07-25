@@ -15,7 +15,6 @@ import java.util.List;
  * @Create 25-Jul-23
  */
 
-@Service
 public interface ItemService {
     
     List<Item> getAllItemsNative();
