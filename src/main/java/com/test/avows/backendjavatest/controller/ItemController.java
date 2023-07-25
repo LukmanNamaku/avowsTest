@@ -31,7 +31,7 @@ public class ItemController {
 
     @ApiOperation("Get All Data Items")
     @GetMapping
-    public ResponseEntity<Object> getAllItems() {
+    public ResponseEntity<Object> getAllItemsNative() {
         List<Item> newItemList = itemService.getAllItems();
         List<HashMap> entities = new ArrayList<>();
         for (Item itemData : newItemList) {

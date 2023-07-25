@@ -2,8 +2,11 @@ package com.test.avows.backendjavatest.repository;
 
 import com.test.avows.backendjavatest.entity.Item;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -15,6 +18,9 @@ import java.util.Optional;
 
 @Repository
 public interface ItemRepository  extends JpaRepository<Item, Integer> {
+    @Query(value = "SELECT * FROM item t", nativeQuery = true)
+    List<Item> getAllItemsNative();
+    
     Optional<Item> findByItemId(Integer itemId);
     Item findTopByItemId(Integer itemId);
 

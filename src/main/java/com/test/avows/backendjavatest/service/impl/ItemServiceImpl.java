@@ -8,8 +8,12 @@ import com.test.avows.backendjavatest.repository.ItemRepository;
 import com.test.avows.backendjavatest.service.ItemService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -24,6 +28,23 @@ public class ItemServiceImpl implements ItemService {
 
     @Autowired
     private ItemRepository itemRepository;
+
+    @PersistenceContext
+    private EntityManager entityManager;
+
+//    public interface CarRepository extends JpaRepository<TRace, String> {
+//        @Query(nativeQuery = true,
+//                value = "select *" +
+//                        "from car_records" +
+//                        "where carVinNo = ?1 and carSerialNo >= ?2")
+//    }
+//    List<Car> retrieveCars(Long vinNo, Long serialNo); }
+
+    @Override
+    public List<Item> getAllItemsNative() {
+        List<Item> newItemList = itemRepository.getAllItemsNative();
+        return newItemList;
+    }
 
     @Override
     public List<Item> getAllItems() {
