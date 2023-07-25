@@ -1,5 +1,6 @@
 package com.test.avows.backendjavatest.repository;
 
+import java.util.List;
 import java.util.Optional;
 
 import com.test.avows.backendjavatest.entity.Customer;
@@ -15,7 +16,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Integer> {
-
     Optional<Customer> findByAccountId(Integer accountId);
+    Customer findTopByAccountId(Integer accountId);
     
 }
