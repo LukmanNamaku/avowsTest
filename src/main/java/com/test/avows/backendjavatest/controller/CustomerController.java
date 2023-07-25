@@ -1,10 +1,12 @@
 package com.test.avows.backendjavatest.controller;
 
 import com.test.avows.backendjavatest.dto.customer.CustomerCreateRequest;
+import com.test.avows.backendjavatest.dto.customer.CustomerDTO;
 import com.test.avows.backendjavatest.dto.customer.CustomerUpdateRequest;
 import com.test.avows.backendjavatest.entity.Customer;
 import com.test.avows.backendjavatest.service.CustomerService;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +16,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * @Project backendjavatest
@@ -23,7 +27,7 @@ import java.util.List;
  */
 
 
-@Controller
+@RestController
 @RequestMapping("/api/managed-customer")
 public class CustomerController {
 
@@ -31,22 +35,26 @@ public class CustomerController {
     private CustomerService customerService;
 
     @ApiOperation("Get All Data Customer")
-    @GetMapping
-    public ResponseEntity<Object> getAllConsumers(){
-//        List<Customer> customerList = customerService.getAllConsumers();
-//        return customerService.getAllConsumer;
-
-        List<Customer> customerList = customerService.getAllConsumers();
-        List<HashMap> entities = new ArrayList<HashMap>();
-        for (Customer n : customerList) {
-            HashMap<String, String> entity = new HashMap<>();
-            entity.put("name", n.getName());
-            entity.put("fullName", n.getFullName());
-            entities.add(entity);
-        }
-        return new ResponseEntity<Object>(entities, HttpStatus.OK);
+    @GetMapping("/")
+    public ResponseEntity<List<CustomerDTO>> getAllConsumers(){
+        List<CustomerDTO> customerList = customerService.getAllConsumers().stream().map(n -> {
+            CustomerDTO customerDTO = new CustomerDTO();
+            customerDTO.setAccountId(n.getAccountId());
+            customerDTO.setName(n.getName());
+            customerDTO.setFullName(n.getFullName());
+            return customerDTO;
+        }).collect(Collectors.toList());
+        return ResponseEntity.ok(customerList);
     }
 
+    @ApiOperation("Get All Data Customer")
+    @GetMapping("/{id}")
+    public ResponseEntity<CustomerDTO> getCustomer(@PathVariable Integer id){
+        Customer customer = customerService.findByAccountId(id);
+        CustomerDTO customerDTO = new CustomerDTO();
+        BeanUtils.copyProperties(customer, customerDTO);
+        return ResponseEntity.ok(customerDTO);
+    }
 
     @ApiOperation("Create New Customer")
     @PostMapping
