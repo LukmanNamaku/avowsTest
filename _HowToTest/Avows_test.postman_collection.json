@@ -1,0 +1,273 @@
+{
+	"info": {
+		"_postman_id": "160d009f-863f-4596-a518-286cab30164f",
+		"name": "Avows_test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ManageCustomer",
+			"item": [
+				{
+					"name": "Get All Customer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:11050/api/managed-customer/",
+							"host": [
+								"localhost"
+							],
+							"port": "11050",
+							"path": [
+								"api",
+								"managed-customer",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get OneBy ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:11050/api/managed-customer/4",
+							"host": [
+								"localhost"
+							],
+							"port": "11050",
+							"path": [
+								"api",
+								"managed-customer",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"fullName\": \"Ridwan Purnama\",\r\n  \"name\": \"Ridwan\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:11050/api/managed-customer/",
+							"host": [
+								"localhost"
+							],
+							"port": "11050",
+							"path": [
+								"api",
+								"managed-customer",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Data By ID",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accountId\": 1,\r\n  \"fullName\": \"Lukman Ardi S\",\r\n  \"name\": \"Lukman\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:11050/api/managed-customer",
+							"host": [
+								"localhost"
+							],
+							"port": "11050",
+							"path": [
+								"api",
+								"managed-customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Customer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:11050/api/managed-customer/3",
+							"host": [
+								"localhost"
+							],
+							"port": "11050",
+							"path": [
+								"api",
+								"managed-customer",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ManageItem",
+			"item": [
+				{
+					"name": "Get All Item",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:11050/api/managed-item",
+							"host": [
+								"localhost"
+							],
+							"port": "11050",
+							"path": [
+								"api",
+								"managed-item"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Item Data",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"text\": \"Satu Ceria\",\r\n  \"titleItem\": \"Ceria Sama Sama\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:11050/api/managed-item",
+							"host": [
+								"localhost"
+							],
+							"port": "11050",
+							"path": [
+								"api",
+								"managed-item"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Data Item",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:11050/api/managed-item/5",
+							"host": [
+								"localhost"
+							],
+							"port": "11050",
+							"path": [
+								"api",
+								"managed-item",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Data Item",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"itemId\": 2,\r\n  \"text\": \"Satu Ceria\",\r\n  \"titleItem\": \"Ceria Sama\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:11050/api/managed-item",
+							"host": [
+								"localhost"
+							],
+							"port": "11050",
+							"path": [
+								"api",
+								"managed-item"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ManageTransaksi",
+			"item": [
+				{
+					"name": "GetAllTransaction",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "CreateTransaction",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"accountId\": 2,\r\n  \"amount\": 32000,\r\n  \"debitCreditStatus\": \"DEBIT\",\r\n  \"description\": \"BAYAR LISTRIK\",\r\n  \"transactionDate\": \"2023-07-25T14:04:27.141Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:11050/api/managed-transaksi",
+							"host": [
+								"localhost"
+							],
+							"port": "11050",
+							"path": [
+								"api",
+								"managed-transaksi"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
