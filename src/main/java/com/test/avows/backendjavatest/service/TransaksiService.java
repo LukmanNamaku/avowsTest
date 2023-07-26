@@ -1,7 +1,6 @@
 package com.test.avows.backendjavatest.service;
 
 import com.test.avows.backendjavatest.dto.Transaksi.TransaksiNewRequest;
-import com.test.avows.backendjavatest.dto.Transaksi.TransaksiUpdateRequest;
 import com.test.avows.backendjavatest.entity.Transaksi;
 
 import java.util.List;
@@ -17,8 +16,7 @@ import java.util.List;
 public interface TransaksiService {
 
     List<Transaksi> getAll();
+    List<Transaksi> getByAccountId(Integer accountId);
     void create(TransaksiNewRequest createNewTransction);
-    void update(TransaksiUpdateRequest createUpdateTransction);
-    void delete(Integer id);
     
 }
